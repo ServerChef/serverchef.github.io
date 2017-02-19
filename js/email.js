@@ -8,10 +8,11 @@
         //override email collection form submit
         $("#emailCollectionForm").on('submit',function(e){
             e.preventDefault();
+            $("#submit-button").text("Processing..").prop('disabled', true);
 
             var data = $(this).serializeArray();
 
-            var email = data.find(function(x) {return x.name == "email"}).value;
+            var email = data.find(function(x) {return x.name == "email";}).value;
 
             $.ajax({
                 type: 'POST',
@@ -32,10 +33,12 @@
                         errorMessage = response.message;
 
                     } else {
-                        errorMessage = "Please check your internet connection"
+                        errorMessage = "Please check your internet connection";
+                        $("#submit-button").text("Try Again").prop('disabled', false);
                     }
 
                     $("#emailFormError").html(errorMessage);
+                    $("#submit-button").text("Notify Me").prop('disabled', false);
                 }
             });
         });
