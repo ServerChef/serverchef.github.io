@@ -60,9 +60,15 @@ p.paragraph {
   line-height: 30px;
   font-weight: 900;
 }
+.logo img{
+	width: 135px;
+}
 @media (max-width: 420px) {
   .logo {
     font-size: 22px;
+  }
+  .logo img{
+	width: 100px;
   }
 }
 .nav-link2,
