@@ -27,13 +27,13 @@
                     $("#emailCollectionForm").hide();
                 },
                 error: function(xhr, type){
-                    var errorMessage = "Something is not right. Please try again";
+                    var errorMessage = "Something went terribly wrong. Please try again later.";
                     if (xhr.status == 400){
                         var response = JSON.parse(xhr.response);
                         errorMessage = response.message;
 
                     } else {
-                        errorMessage = "Please check your internet connection";
+                        errorMessage = "Couldn\'t reach server. Are you sure you are connected?";
                         $("#submit-button").text("Try Again").prop('disabled', false);
                     }
 
